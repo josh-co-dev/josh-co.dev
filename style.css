@@ -27,6 +27,9 @@ footer {
 h1 {
     font-size: 50px;
 }
-.container a {
+.link {
+    color: white;
+}
+.link:visited {
     color: white;
 }
