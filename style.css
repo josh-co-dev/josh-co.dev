@@ -2,6 +2,7 @@ body {
     background-color: #202022;
     color: white;
 }
+
 .content {
     left: 0;
     right: 0;
@@ -9,6 +10,11 @@ body {
     position: absolute;
     background-color: black;
 }
+
+.container {
+    padding: 1rem;
+}
+
 footer {
     background-color: #202022;
     padding-top: 1%;
@@ -16,4 +22,8 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+h1 {
+    font-size: 50px;
 }
