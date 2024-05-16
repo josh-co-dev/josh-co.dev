@@ -27,3 +27,6 @@ footer {
 h1 {
     font-size: 50px;
 }
+.container a {
+    color: white;
+}
