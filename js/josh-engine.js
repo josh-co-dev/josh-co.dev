@@ -30,20 +30,20 @@ const codes=  [
     "                        <span>}</span>\n",
 
     "<p class='comment'>// main.cs</p>" +
-    "<span class='comment'// Eventually, there will be something here></span><br>" +
+    "<span class='comment'>// Eventually, there will be something here</span><br>" +
     "<span class='comment'>// JoshEngine does not have C# support yet</span><br>" +
-    "<span class='comment'>// But it will be added in the future</span><br>" +
-    "<span class='comment'>// For now, you can use C++, or port it to C# your self</span><br>",
+    "<span class='comment'>// But it will be added in the future (hopefully)</span><br>" +
+    "<span class='comment'>// For now, you can use C++, or port it to C# yourself</span><br>",
 
     "<p class='comment'># main.py</p>" +
     "<span class='comment'># Eventually, there will be something here</span><br>" +
     "<span class='comment'># JoshEngine does not have python support yet</span><br>" +
-    "<span class='comment'># But it will be added in the future</span><br>" +
-    "<span class='comment'># For now, you can use C++, or port it to python your self</span><br>",
+    "<span class='comment'># But it will be added in the future (maybe)</span><br>" +
+    "<span class='comment'># For now, you can use C++, or port it to python yourself</span><br>",
 ]
-let canSwitch = true;
+
 function langClick(id) {
-    if(id === selected || id > 2 || !canSwitch) return;
+    if(id === selected || id > 2) return;
     let first = document.getElementsByClassName(selected.toString());
     let next = document.getElementsByClassName(id.toString());
     first[0].classList.remove("active");
@@ -51,7 +51,7 @@ function langClick(id) {
     selected = id;
     let code = document.getElementsByClassName("code")[0];
     code.innerHTML = codes[id];
-    tl.kill();
+    tl.scrollTrigger.kill();
     animateText();
 }
 
@@ -59,24 +59,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger,TextPlugin)
     animateText()
 });
-function disableSwitch() {
-    canSwitch = false;
-}
 
 function animateText() {
     let elems = gsap.utils.toArray(".code span");
-    ScrollTrigger.create({
-        trigger: ".padding",
-        start: "top top",
-        end: "+=200%",
-        onEnter: disableSwitch,
-    })
     tl = gsap.timeline({scrollTrigger: {
             trigger: ".padding",
-            scrub: true,
+            scrub: true ,
             pin: true,
             start: "top top",
             end: "+=200%",
+            snap: {
+                snapTo: "labels",
+            }
         }});
     elems.forEach(el => {
         tl.from(el, {text: "", duration: el.innerHTML.length * 2, ease: "none"});
