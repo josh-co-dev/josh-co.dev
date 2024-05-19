@@ -6,6 +6,10 @@
     <link href="/styles/josh-engine.css" rel="stylesheet" type="text/css">
     <link href="/styles/base.css" rel="stylesheet" type="text/css">
     <link href="/styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+          rel="stylesheet">
 </head>
 <body>
 <header class="navbar">
@@ -25,17 +29,67 @@
     <div class="container">
         <div class="title">
             <h1><span>Josh</span> <span>Engine</span></h1>
-            <img src="/media/je_logo.png" alt="JoshEngine logo">
         </div>
-        <main></main>
-        <h2>Text</h2>
-
-
-
+        <div class="padding">
+            <div class="je-demo">
+                <div class="inner-left">
+                    <div class="first"></div>
+                    <div class="second"></div>
+                    <div class="third"></div>
+                </div>
+                <div class="inner-right">
+                    <ul class="langs">
+                        <li class="active 0" onclick="langClick(0)">C++</li>
+                        <li class="1" onclick="langClick(1)">C#</li>
+                        <li class="2" onclick="langClick(2)">Python</li>
+                    </ul>
+                    <div class="code"><p class="comment">// main.cpp</p>
+                        <span class="metadata">#include</span> <span class="string">"engine/engine.h"</span><br>
+                        <span class="metadata">#include</span> <span class="string">"test.h"</span><br><br>
+                        <span class="keyword">int</span> <span class="function">main</span><span>() {</span><br>
+                        &emsp;&emsp;<span class="type">JEGraphicsSettings</span> <span>graphicsSettings{};</span><br>
+                        &emsp;&emsp;<span>graphicsSettings.</span><span
+                                class="property">vsyncEnabled</span><span> = </span><span
+                                class="keyword">true</span><span>;</span><br>
+                        &emsp;&emsp;<span>graphicsSettings.</span><span
+                                class="property">skybox</span><span> = </span><span
+                                class="keyword">true</span><span>;</span><br>
+                        &emsp;&emsp;<span>graphicsSettings.</span><span class="property">clearColor</span><span>[</span><span
+                                class="number">0</span><span>] = </span><span
+                                class="number">0.75f</span><span>;</span><br>
+                        &emsp;&emsp;<span>graphicsSettings.</span><span class="property">clearColor</span><span>[</span><span
+                                class="number">1</span><span>] = </span><span
+                                class="number">0.75f</span><span>;</span><br>
+                        &emsp;&emsp;<span>graphicsSettings.</span><span class="property">clearColor</span><span>[</span><span
+                                class="number">2</span><span>] = </span><span
+                                class="number">0.8f</span><span>;</span><br>
+                        &emsp;&emsp;<span>graphicsSettings.</span><span
+                                class="property">msaaSamples</span><span> = </span><span
+                                class="number">4</span><span>;</span><br>
+                        &emsp;&emsp;<span>init(</span><span class="string">"JoshEngine Demo"</span><span>, </span><span
+                                class="number">1280</span><span>,
+                    </span><span class="number">720</span><span>, graphicsSettings);</span><br>
+                        &emsp;&emsp;<span>setupTest();</span><br>
+                        &emsp;&emsp;<span>mainLoop();</span><br>
+                        &emsp;&emsp;<span>deinit();</span><br>
+                        &emsp;&emsp;<span class="keyword">return </span><span class="number">0</span><span>;</span><br>
+                        <span>}</span>
+                    </div>
+                    <button onclick="animateText()">Start Animation</button>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
     <footer>
         Thanks for vising :)
     </footer>
 </div>
+<!-- gsap + scrollTrigger and text plugins -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+<script src="/js/josh-engine.js"></script>
 </body>
 </html>
