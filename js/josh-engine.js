@@ -77,7 +77,6 @@ function animateText() {
             pin: true,
             start: "top top",
             end: "+=200%",
-            markers: true,
         }});
     elems.forEach(el => {
         tl.from(el, {text: "", duration: el.innerHTML.length * 2, ease: "none"});
