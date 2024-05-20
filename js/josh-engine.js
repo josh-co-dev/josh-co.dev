@@ -1,4 +1,4 @@
-let selected = 0;
+let selected = 2;
 let tl;
 const codes=  [
     "<p class=\"comment\">// main.cpp</p>\n" +
@@ -33,13 +33,29 @@ const codes=  [
     "<span class='comment'>// Eventually, there will be something here</span><br>" +
     "<span class='comment'>// JoshEngine does not have C# support yet</span><br>" +
     "<span class='comment'>// But it will be added in the future (hopefully)</span><br>" +
-    "<span class='comment'>// For now, you can use C++, or port it to C# yourself</span><br>",
+    "<span class='comment'>// For now, you can use C++, or port it to C# yourself</span><br>" +
+    "<span class='comment'>// Here is some lorem ipsum for you:</span><br>" +
+    "<span class='comment'>// Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span><br>" +
+    "<span class='comment'>// Donec quis aliquam eros. Mauris vitae fermentum nisl.</span><br>" +
+    "<span class='comment'>// Maecenas posuere velit sed augue pellentesque, id blandit mi euismod.</span><br>" +
+    "<span class='comment'>// Suspendisse accumsan nunc in arcu eleifend accumsan nec a dui.</span><br>" +
+    "<span class='comment'>// Integer condimentum urna posuere leo ultricies pulvinar.</span><br>" +
+    "<span class='comment'>// In consequat egestas interdum.</span><br>" +
+    "<span class='comment'>// Curabitur gravida maximus.</span><br><br>",
 
     "<p class='comment'># main.py</p>" +
     "<span class='comment'># Eventually, there will be something here</span><br>" +
-    "<span class='comment'># JoshEngine does not have python support yet</span><br>" +
-    "<span class='comment'># But it will be added in the future (maybe)</span><br>" +
-    "<span class='comment'># For now, you can use C++, or port it to python yourself</span><br>",
+    "<span class='comment'># JoshEngine does not have C# support yet</span><br>" +
+    "<span class='comment'># But it will be added in the future (hopefully)</span><br>" +
+    "<span class='comment'># For now, you can use C++, or port it to C# yourself</span><br>" +
+    "<span class='comment'># Here is some lorem ipsum for you:</span><br>" +
+    "<span class='comment'># Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span><br>" +
+    "<span class='comment'># Donec quis aliquam eros. Mauris vitae fermentum nisl.</span><br>" +
+    "<span class='comment'># Maecenas posuere velit sed augue pellentesque, id blandit mi euismod.</span><br>" +
+    "<span class='comment'># Suspendisse accumsan nunc in arcu eleifend accumsan nec a dui.</span><br>" +
+    "<span class='comment'># Integer condimentum urna posuere leo ultricies pulvinar.</span><br>" +
+    "<span class='comment'># In consequat egestas interdum.</span><br>" +
+    "<span class='comment'># Curabitur gravida maximus.</span><br><br>",
 ]
 
 function langClick(id) {
@@ -58,6 +74,7 @@ function langClick(id) {
 document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger,TextPlugin)
     animateText()
+    langClick(0);
 });
 
 function animateText() {
@@ -67,8 +84,7 @@ function animateText() {
             scrub: true ,
             pin: true,
             start: "top top",
-            end: "+=300%",
-            markers: true
+            end: "+=250%",
         }});
     tl.addLabel('transition', "+=15%")
     tl.addLabel("part-2", "+=19%")
