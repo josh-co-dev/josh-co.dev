@@ -55,7 +55,12 @@
     border-radius: 10px;
     grid-template-columns: repeat(2, 1fr);
 }
-
+.inner-left div {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 5rem;
+}
 .inner-right {
     border: solid 1px #b8b8b8;
     border-radius: 10px;

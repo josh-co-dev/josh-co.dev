@@ -67,12 +67,18 @@ function animateText() {
             scrub: true ,
             pin: true,
             start: "top top",
-            end: "+=200%",
-            snap: {
-                snapTo: "labels",
-            }
+            end: "+=300%",
+            markers: true
         }});
+    tl.addLabel('transition', "+=15%")
+    tl.addLabel("part-2", "+=19%")
+    tl.to('.text', {opacity: 0, duration: 1.5, ease: "none"}, 'transition')
+    tl.to('.text', {text: "Write Code", duration: 0, ease: "none"}, '>')
+    tl.to('.text', {opacity: 1, duration: 1.5, ease: "none"}, '>')
+    let times = 0;
     elems.forEach(el => {
-        tl.from(el, {text: "", duration: el.innerHTML.length * 2, ease: "none"});
+        let text = times > 0 ? ">" : "part-2"
+        tl.from(el, {text: "", ease: "none"}, text);
+        times++;
     });
 }
