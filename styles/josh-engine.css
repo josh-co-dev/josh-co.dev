@@ -54,8 +54,19 @@
     border: solid 1px white;
     border-radius: 10px;
     grid-template-columns: repeat(2, 1fr);
+    height: 100%;
 }
-.inner-left div {
+.inner-left {
+    width: 50rem;
+    height: 100%;
+}
+.inner-left .numb {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 2rem;
+}
+.inner-left .text {
     text-align: center;
     margin: 10px;
     padding: 10px;
@@ -66,6 +77,8 @@
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
+    width: 50rem;
+    height: 90%;
 }
 
 .langs {
@@ -98,48 +111,56 @@
 }
 
 .code {
-    background-color: #1e1f22;
-    padding: 1rem;
+    background-color: #161c27;
     border-radius: 10px;
     margin: 10px;
     font-family: "JetBrains Mono", monospace;
     overflow-x: auto;
-    color: #BCBEC4;
-    min-height: 440px;
+    color: #f5f9fc;
+    height: 90%;
+    width: 85%;
 }
-
+.padding-code {
+    padding: 1rem;
+}
 .hidden {
     display: none !important;
 }
 
 .code .string {
-    color: #6AAB73;
+    color: #37c3ac;
 }
 
 .code .keyword {
-    color: #CF8E6D;
+    color: #e4a22f;
 }
 
 .code .metadata {
-    color: #B3AE60;
+    color: #dbff57;
 }
 
 .code .number {
-    color: #2AACB8;
+    color: #a5ff85;
 }
 
 .code .comment {
-    color: #7A7E85;
+    color: #8a8475;
 }
 
 .code .function {
-    color: #56a8f5;
+    color: #db4888;
 }
 
 .code .type {
-    color: #b5b6e3;
+    color: #1fe035;
 }
 
 .code .property {
-    color: #9373a5;
+    color: #a361f5;
+}
+.code .boolean {
+    color: #B2D9FF;
+}
+.code .var {
+    color: #7a95ff;
 }

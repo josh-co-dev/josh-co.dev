@@ -4,28 +4,28 @@ const codes=  [
     "<p class=\"comment\">// main.cpp</p>\n" +
     "                        <span class=\"metadata\">#include</span> <span class=\"string\">\"engine/engine.h\"</span><br>\n" +
     "                        <span class=\"metadata\">#include</span> <span class=\"string\">\"test.h\"</span><br><br>\n" +
-    "                        <span class=\"keyword\">int</span> <span class=\"function\">main</span><span>() {</span><br>\n" +
-    "                        &emsp;&emsp;<span class=\"type\">JEGraphicsSettings</span> <span>graphicsSettings{};</span><br>\n" +
-    "                        &emsp;&emsp;<span>graphicsSettings.</span><span\n" +
+    "                        <span class=\"type\">int</span> <span class=\"function\">main</span><span>() {</span><br>\n" +
+    "                        &emsp;&emsp;<span class=\"type\">JEGraphicsSettings</span> <span class='var'>graphicsSettings</span><span>{};</span><br>\n" +
+    "                        &emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span\n" +
     "                            class=\"property\">vsyncEnabled</span><span> = </span><span\n" +
-    "                            class=\"keyword\">true</span><span>;</span><br>\n" +
-    "                        &emsp;&emsp;<span>graphicsSettings.</span><span\n" +
+    "                            class=\"boolean\">true</span><span>;</span><br>\n" +
+    "                        &emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span\n" +
     "                            class=\"property\">skybox</span><span> = </span><span\n" +
-    "                            class=\"keyword\">true</span><span>;</span><br>\n" +
-    "                        &emsp;&emsp;<span>graphicsSettings.</span><span class=\"property\">clearColor</span><span>[</span><span\n" +
+    "                            class=\"boolean\">true</span><span>;</span><br>\n" +
+    "                        &emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span class=\"property\">clearColor</span><span>[</span><span\n" +
     "                            class=\"number\">0</span><span>] = </span><span class=\"number\">0.75f</span><span>;</span><br>\n" +
-    "                        &emsp;&emsp;<span>graphicsSettings.</span><span class=\"property\">clearColor</span><span>[</span><span\n" +
+    "                        &emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span class=\"property\">clearColor</span><span>[</span><span\n" +
     "                            class=\"number\">1</span><span>] = </span><span class=\"number\">0.75f</span><span>;</span><br>\n" +
-    "                        &emsp;&emsp;<span>graphicsSettings.</span><span class=\"property\">clearColor</span><span>[</span><span\n" +
+    "                        &emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span class=\"property\">clearColor</span><span>[</span><span\n" +
     "                            class=\"number\">2</span><span>] = </span><span class=\"number\">0.8f</span><span>;</span><br>\n" +
-    "                        &emsp;&emsp;<span>graphicsSettings.</span><span\n" +
+    "                        &emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span\n" +
     "                            class=\"property\">msaaSamples</span><span> = </span><span\n" +
     "                            class=\"number\">4</span><span>;</span><br>\n" +
-    "                        &emsp;&emsp;<span>init(</span><span class=\"string\">\"JoshEngine Demo\"</span><span>, </span><span\n" +
-    "                            class=\"number\">1280</span><span>, </span><span class=\"number\">720</span><span>, graphicsSettings);</span><br>\n" +
-    "                        &emsp;&emsp;<span>setupTest();</span><br>\n" +
-    "                        &emsp;&emsp;<span>mainLoop();</span><br>\n" +
-    "                        &emsp;&emsp;<span>deinit();</span><br>\n" +
+    "                        &emsp;&emsp;<span class='function'>init</span><span>(</span><span class=\"string\">\"JoshEngine Demo\"</span><span>, </span><span\n" +
+    "                            class=\"number\">1280</span><span>, </span><span class=\"number\">720</span><span>, </span><span class='var'>graphicsSettings</span><span>);</span><br>\n" +
+    "                        &emsp;&emsp;<span class='function'>setupTest</span><span>();</span><br>\n" +
+    "                        &emsp;&emsp;<span class='function'>mainLoop</span><span>();</span><br>\n" +
+    "                        &emsp;&emsp;<span class='function'>deinit</span><span>();</span><br>\n" +
     "                        &emsp;&emsp;<span class=\"keyword\">return </span><span class=\"number\">0</span><span>;</span><br>\n" +
     "                        <span>}</span>\n",
 
@@ -65,7 +65,7 @@ function langClick(id) {
     first[0].classList.remove("active");
     next[0].classList.add("active");
     selected = id;
-    let code = document.getElementsByClassName("code")[0];
+    let code = document.getElementsByClassName("padding-code")[0];
     code.innerHTML = codes[id];
     tl.scrollTrigger.kill();
     animateText();
@@ -78,23 +78,36 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function animateText() {
-    let elems = gsap.utils.toArray(".code span");
+    let elems = gsap.utils.toArray(".padding-code span");
     tl = gsap.timeline({scrollTrigger: {
             trigger: ".padding",
             scrub: true ,
             pin: true,
             start: "top top",
-            end: "+=250%",
+            end: "+=300%",
         }});
-    tl.addLabel('transition', "+=15%")
-    tl.addLabel("part-2", "+=19%")
+    tl.addLabel('transition', "+=20%")
+    tl.addLabel("part-2", "+=25%")
     tl.to('.text', {opacity: 0, duration: 1.5, ease: "none"}, 'transition')
+    tl.to(".numb", {text: "Step 2", duration: 3, ease: "none"}, "transition")
     tl.to('.text', {text: "Write Code", duration: 0, ease: "none"}, '>')
     tl.to('.text', {opacity: 1, duration: 1.5, ease: "none"}, '>')
     let times = 0;
     elems.forEach(el => {
         let text = times > 0 ? ">" : "part-2"
-        tl.from(el, {text: "", ease: "none"}, text);
+        tl.from(el, {text: "", duration: 2*el.innerHTML.length, ease: "none"}, text);
         times++;
     });
+    tl.addLabel('transition-2', "+=60%");
+    tl.addLabel('part-3', "transition-2+=5%");
+    tl.to('.text', {opacity: 0, duration: 1.5, ease: "none"}, 'transition-2')
+    tl.to(".numb", {text: "Step 3", duration: 3, ease: "none"}, "transition-2")
+    tl.to('.text', {text: "Run the code", duration: 0, ease: "none"}, '>')
+    tl.to('.text', {opacity: 1, duration: 1.5, ease: "none"}, '>')
+    tl.to('.code', {opacity: 0, duration: 1.5, ease: "none"}, 'part-3')
+    tl.to('.code', {width: 0, height: 0, duration: 0, ease: "none"}, '>')
+    tl.to(".img", {width: "85.5%", height: "75%", margin: 10, duration: 0, ease: "none"}, '>')
+    tl.to(".img", {opacity: 1, duration: 1.5, ease: "none"}, '>')
+    tl.addLabel('end', "+=100%")
+    tl.to(".numb", {text: "Step 3", duration: 0, ease: "none"}, "end")
 }
