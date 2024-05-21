@@ -6,15 +6,10 @@
     <link href="/styles/home.css" rel="stylesheet" type="text/css">
     <link href="/styles/base.css" rel="stylesheet" type="text/css">
     <link href="/styles/navbar.css" rel="stylesheet" type="text/css">
-    
-    </head>
+
+</head>
 <body>
-    <div>
-        <div class="warning" onclick="this.parentNode.parentNode.removeChild(this.parentNode);">
-            <strong>Warning!</strong> I am testing in production!
-        </div>
-    </div>
-   <header class="navbar">
+<header class="navbar">
     <ul>
         <li class="left"><a href="#">JoshCo</a></li>
         <li class="left dropdown"><a href="#">Projects</a>
@@ -28,6 +23,9 @@
 
     </ul>
 </header>
+<div class="warning" onclick="document.getElementsByClassName('warning')[0].style.display='none'">
+    <strong>Warning!</strong> This website is still in development! (Click to dismiss)
+</div>
 <div class="content">
     <div class="container">
         <h1>JoshCo</h1>
@@ -35,45 +33,30 @@
         <p>Eventually there will be stuff here, but for now this is just a list of our projects</p>
         <br><br>
         <h2>(Semi) Completed projects</h2>
-        <ul>
-            <!--<li><a class="link" href="https://github.com/josh-engine/josh-engine-legacy" target="_blank">JoshEngine
-                legacy</a> — game
-                engine made with fixed function opengl written in java
-            </li>-->
-        </ul>
         <div class="item">
             <a class="link" href="https://github.com/josh-engine/josh-engine-legacy" target="_blank">
-                <img src="https://github-readme-stats.vercel.app/api/pin/?username=josh-engine&repo=josh-engine-legacy&theme=dark">
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=josh-engine&repo=josh-engine-legacy&theme=dark" alt="JoshEngine Legacy">
             </a>
         </div>
         <br><br>
         <h2>
             Projects in development
         </h2>
-        <ul>
-            <li>JoshEngine — game engine written in c++. There is currently no available release due to heavy
-                development
-            </li>
-            <!--<li><a class="link" href="https://github.com/josh-co-dev/hotcakes" target="_blank">Hotcakes</a> — Hot reload
-                C like
-                languages (currently heavy in development, if you need this desperately you can use the bad hardcoded
-                version <a class="link"
-                           href="https://replit.com/@PinataCactus/Hot-reloading-C-and-C-code?v=1#src/main.rs"
-                           target="_blank">here</a>)
-            </li>-->
-            <div class="item">
-                <a class="link" href="https://github.com/josh-co-dev/hotcakes" target="_blank">
-                    <img src="https://github-readme-stats.vercel.app/api/pin/?username=josh-co-dev&repo=hotcakes&theme=dark">
-                </a>
-            </div>
+        <div>JoshEngine — game engine written in c++.
+            There is currently no available release due to heavy
+            development
+        </div>
+        <div class="item">
+            <a class="link" href="https://github.com/josh-co-dev/hotcakes" target="_blank">
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=josh-co-dev&repo=hotcakes&theme=dark" alt="Hotcakes">
+            </a>
+        </div>
 
-            <div class="item">
-                <a class="link" href="https://github.com/josh-co-dev/josh-co.dev" target="_blank">
-                    <img src="https://github-readme-stats.vercel.app/api/pin/?username=josh-co-dev&repo=josh-co.dev&theme=dark">
-                </a>
-            </div>
-            <!--<li>This website — As I said earlier, it is still in development</li>-->
-        </ul>
+        <div class="item">
+            <a class="link" href="https://github.com/josh-co-dev/josh-co.dev" target="_blank">
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=josh-co-dev&repo=josh-co.dev&theme=dark" alt="JoshCo Website">
+            </a>
+        </div>
         <br><br>
         <h2>
             Future projects
