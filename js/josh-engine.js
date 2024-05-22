@@ -1,33 +1,26 @@
 let selected = 2;
 let tl;
-const codes=  [
+const codes = [
     "<p class=\"comment\">// main.cpp</p>" +
     "<span class=\"metadata\">#include</span> <span class=\"string\">\"engine/engine.h\"</span><br>" +
     "<span class=\"metadata\">#include</span> <span class=\"string\">\"test.h\"</span><br><br>" +
     "<span class=\"type\">int</span> <span class=\"function\">main</span><span>() {</span><br>" +
     "&emsp;&emsp;<span class=\"type\">JEGraphicsSettings</span> <span class='var'>graphicsSettings</span><span>{};</span><br>" +
-    "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span" +
-    " class=\"property\">vsyncEnabled</span><span> = </span><span" +
-    " class=\"boolean\">true</span><span>;</span><br>" +
-    "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span" +
-    " class=\"property\">skybox</span><span> = </span><span" +
-    " class=\"boolean\">true</span><span>;</span><br>" +
+    "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span" + " class=\"property\">vsyncEnabled</span><span> = </span><span" +
+    " class=\"boolean\">true</span><span>;</span><br>" + "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span" +
+    " class=\"property\">skybox</span><span> = </span><span" + " class=\"boolean\">true</span><span>;</span><br>" +
     "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span class=\"property\">clearColor</span><span>[</span><span" +
     " class=\"number\">0</span><span>] = </span><span class=\"number\">0.75f</span><span>;</span><br>" +
     "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span class=\"property\">clearColor</span><span>[</span><span" +
     " class=\"number\">1</span><span>] = </span><span class=\"number\">0.75f</span><span>;</span><br>" +
     "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span class=\"property\">clearColor</span><span>[</span><span" +
     " class=\"number\">2</span><span>] = </span><span class=\"number\">0.8f</span><span>;</span><br>" +
-    "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span" +
-    " class=\"property\">msaaSamples</span><span> = </span><span" +
+    "&emsp;&emsp;<span class='var'>graphicsSettings</span><span>.</span><span" + " class=\"property\">msaaSamples</span><span> = </span><span" +
     " class=\"number\">4</span><span>;</span><br>" +
     "&emsp;&emsp;<span class='function'>init</span><span>(</span><span class=\"string\">\"JoshEngine Demo\"</span><span>, </span><span" +
     " class=\"number\">1280</span><span>, </span><span class=\"number\">720</span><span>, </span><span class='var'>graphicsSettings</span><span>);</span><br>" +
-    "&emsp;&emsp;<span class='function'>setupTest</span><span>();</span><br>" +
-    "&emsp;&emsp;<span class='function'>mainLoop</span><span>();</span><br>" +
-    "&emsp;&emsp;<span class='function'>deinit</span><span>();</span><br>" +
-    "&emsp;&emsp;<span class=\"keyword\">return </span><span class=\"number\">0</span><span>;</span><br>" +
-    "<span>}</span>",
+    "&emsp;&emsp;<span class='function'>setupTest</span><span>();</span><br>" + "&emsp;&emsp;<span class='function'>mainLoop</span><span>();</span><br>" +
+    "&emsp;&emsp;<span class='function'>deinit</span><span>();</span><br>" + "&emsp;&emsp;<span class=\"keyword\">return </span><span class=\"number\">0</span><span>;</span><br><span>}</span>",
 
     "<p class='comment'>// main.cs</p>" +
     "<span class='keyword'>using </span><span class='namespace'>System</span><span>;</span><br><br>" +
@@ -41,17 +34,15 @@ const codes=  [
     "<p class='comment'># main.py</p>" +
     "<span class='keyword'>import </span><span class='var'>sys</span><br><br>" +
     "<span class='keyword'>class</span><span class='type'> Main</span><span>:</span><br><br>" +
-    "&emsp;&emsp;<span class='keyword'>def </span><span class='function'>main</span><span>" +
-    "(</span><span class='var'>self</span><span>, </span><span class='var'>args</span>" +
+    "&emsp;&emsp;<span class='keyword'>def </span><span class='function'>main</span><span>" + "(</span><span class='var'>self</span><span>, </span><span class='var'>args</span>" +
     "<span>: </span><span class='type'>list</span><span>[</span><span class='type'>str</span><span>]</span><span>):</span><br><br>" +
     "&emsp;&emsp;&emsp;&emsp;<span class='function'>print</span><span>(</span><span class='string'>\"Hello world!\"</span><span>)</span><br><br><br>" +
     "<span class='var'>argv</span><span> = </span><span class='var'>sys</span><span>.</span><span class='property'>argv</span><br><br>" +
     "<span class='var'>argv</span><span>.</span><span class='func-props'>pop</span><span>(</span><span class='number'>0</span><span>)</span><br><br>" +
-    "<span class='function'>Main</span><span>().</span><span class='func-props'>main</span><span>(</span><span class='var'>argv</span><span>);</span>"
-]
+    "<span class='function'>Main</span><span>().</span><span class='func-props'>main</span><span>(</span><span class='var'>argv</span><span>);</span>"]
 
 function langClick(id) {
-    if(id === selected || id > 2) return;
+    if (id === selected || id > 2) return;
     let first = document.getElementsByClassName(selected.toString());
     let next = document.getElementsByClassName(id.toString());
     first[0].classList.remove("active");
@@ -63,21 +54,19 @@ function langClick(id) {
     animateText();
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(ScrollTrigger,TextPlugin)
+document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger, TextPlugin)
     animateText()
     langClick(0);
 });
 
 function animateText() {
     let elems = gsap.utils.toArray(".padding-code span");
-    tl = gsap.timeline({scrollTrigger: {
-            trigger: ".padding",
-            scrub: true ,
-            pin: true,
-            start: "top top",
-            end: "+=300%",
-        }});
+    tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".padding", scrub: true, pin: true, start: "top top", end: "+=300%",
+        }
+    });
     tl.addLabel('transition', "+=20%")
     tl.addLabel("part-2", "+=25%")
     tl.to('.text', {opacity: 0, duration: 1.5, ease: "none"}, 'transition')
@@ -87,7 +76,7 @@ function animateText() {
     let times = 0;
     elems.forEach(el => {
         let text = times > 0 ? ">" : "part-2"
-        tl.from(el, {text: "", duration: 2*el.innerHTML.length, ease: "none"}, text);
+        tl.from(el, {text: "", duration: 2 * el.innerHTML.length, ease: "none"}, text);
         times++;
     });
     tl.addLabel('transition-2', "+=60%");

@@ -56,22 +56,26 @@
     grid-template-columns: repeat(2, 1fr);
     height: 100%;
 }
+
 .inner-left {
     width: 50rem;
     height: 100%;
 }
+
 .inner-left .numb {
     text-align: center;
     margin: 10px;
     padding: 10px;
     font-size: 2rem;
 }
+
 .inner-left .text {
     text-align: center;
     margin: 10px;
     padding: 10px;
     font-size: 5rem;
 }
+
 .inner-right {
     border: solid 1px #b8b8b8;
     border-radius: 10px;
@@ -120,9 +124,11 @@
     height: 90%;
     width: 85%;
 }
+
 .padding-code {
     padding: 1rem;
 }
+
 .hidden {
     display: none !important;
 }
@@ -158,18 +164,23 @@
 .code .property {
     color: #a361f5;
 }
+
 .code .boolean {
     color: #B2D9FF;
 }
+
 .code .var {
     color: #7a95ff;
 }
+
 .code .namespace {
     color: #41b9b7;
 }
+
 .code .func-props {
     color: #93e01f;
 }
+
 .code .operators {
     color: #b5d7f7;
 }
