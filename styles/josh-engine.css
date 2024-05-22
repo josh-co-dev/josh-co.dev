@@ -164,3 +164,12 @@
 .code .var {
     color: #7a95ff;
 }
+.code .namespace {
+    color: #41b9b7;
+}
+.code .func-props {
+    color: #93e01f;
+}
+.code .operators {
+    color: #b5d7f7;
+}
