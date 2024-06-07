@@ -67,8 +67,9 @@ function animateText() {
             trigger: ".padding", scrub: true, pin: true, start: "top top", end: "+=300%",
         }
     });
-    tl.addLabel('transition', "+=20%")
-    tl.addLabel("part-2", "+=25%")
+    tl.addLabel("start")
+    tl.addLabel('transition', "+=50%")
+    tl.addLabel("part-2", "+=55%")
     tl.to('.text', {opacity: 0, duration: 1.5, ease: "none"}, 'transition')
     tl.to(".numb", {text: "Step 2", duration: 3, ease: "none"}, "transition")
     tl.to('.text', {text: "Write Code", duration: 0, ease: "none"}, '>')
@@ -91,4 +92,10 @@ function animateText() {
     tl.to(".img", {opacity: 1, duration: 1.5, ease: "none"}, '>')
     tl.addLabel('end', "+=100%")
     tl.to(".numb", {text: "Step 3", duration: 0, ease: "none"}, "end")
+    tl.to(".line", {
+        height: 564,
+        duration: 1000,
+        display: "inline-block",
+        ease: "none"
+    }, "start")
 }

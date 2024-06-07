@@ -184,3 +184,12 @@
 .code .operators {
     color: #b5d7f7;
 }
+.line {
+    display: none;
+    padding: 5px;
+    margin: 10px;
+    background-color: deepskyblue;
+    width: 1px;
+    height: 0;
+    position: fixed;
+}
